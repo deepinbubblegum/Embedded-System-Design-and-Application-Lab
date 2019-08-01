@@ -1,0 +1,16 @@
+HAL_UART_Transmit()
+HAL_UART_Receive()
+
+HAL_UART_Transmit_IT()
+HAL_UART_Receive_IT()
+
+HAL_UART_Transmit_DMA()
+HAL_UART_Receive_DMA()
+
+LcdInit();
+LcdCls(LCD_CLS_ALL);
+LcdSetBackLight(LCD_BACKLIGHT_ON);
+LcdSetCursor(LCD_CURSOR_OFF);
+
+LcdSetPosition(LCD_LINE_1, 0);
+LcdPutS("Hello");

@@ -1,0 +1,25 @@
+--cpu=Cortex-M4.fp
+"lab02\startup_stm32f303xc.o"
+"lab02\led_circle.o"
+"lab02\main.o"
+"lab02\stm32f3xx_it.o"
+"lab02\stm32f3xx_hal_msp.o"
+"lab02\stm32f3xx_hal_tim.o"
+"lab02\stm32f3xx_hal_tim_ex.o"
+"lab02\stm32f3xx_hal.o"
+"lab02\stm32f3xx_hal_rcc.o"
+"lab02\stm32f3xx_hal_rcc_ex.o"
+"lab02\stm32f3xx_hal_gpio.o"
+"lab02\stm32f3xx_hal_dma.o"
+"lab02\stm32f3xx_hal_cortex.o"
+"lab02\stm32f3xx_hal_pwr.o"
+"lab02\stm32f3xx_hal_pwr_ex.o"
+"lab02\stm32f3xx_hal_flash.o"
+"lab02\stm32f3xx_hal_flash_ex.o"
+"lab02\stm32f3xx_hal_i2c.o"
+"lab02\stm32f3xx_hal_i2c_ex.o"
+"lab02\system_stm32f3xx.o"
+--library_type=microlib --strict --scatter "Lab02\Lab02.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Lab02.map" -o Lab02\Lab02.axf

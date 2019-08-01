@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp
+"lab06\startup_stm32f303xc.o"
+"lab06\koibitoex_lcd2.o"
+"lab06\main.o"
+"lab06\stm32f3xx_it.o"
+"lab06\stm32f3xx_hal_msp.o"
+"lab06\stm32f3xx_hal_tim.o"
+"lab06\stm32f3xx_hal_tim_ex.o"
+"lab06\stm32f3xx_hal_uart.o"
+"lab06\stm32f3xx_hal_uart_ex.o"
+"lab06\stm32f3xx_hal.o"
+"lab06\stm32f3xx_hal_rcc.o"
+"lab06\stm32f3xx_hal_rcc_ex.o"
+"lab06\stm32f3xx_hal_gpio.o"
+"lab06\stm32f3xx_hal_dma.o"
+"lab06\stm32f3xx_hal_cortex.o"
+"lab06\stm32f3xx_hal_pwr.o"
+"lab06\stm32f3xx_hal_pwr_ex.o"
+"lab06\stm32f3xx_hal_flash.o"
+"lab06\stm32f3xx_hal_flash_ex.o"
+"lab06\stm32f3xx_hal_i2c.o"
+"lab06\stm32f3xx_hal_i2c_ex.o"
+"lab06\system_stm32f3xx.o"
+--library_type=microlib --strict --scatter "Lab06\Lab06.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Lab06.map" -o Lab06\Lab06.axf
