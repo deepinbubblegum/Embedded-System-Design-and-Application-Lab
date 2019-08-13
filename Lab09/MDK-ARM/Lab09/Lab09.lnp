@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp
+"lab09\startup_stm32f303xc.o"
+"lab09\main.o"
+"lab09\stm32f3xx_it.o"
+"lab09\stm32f3xx_hal_msp.o"
+"lab09\koibitoex_lcd2.o"
+"lab09\stm32f3xx_hal_adc.o"
+"lab09\stm32f3xx_hal_adc_ex.o"
+"lab09\stm32f3xx_hal_tim.o"
+"lab09\stm32f3xx_hal_tim_ex.o"
+"lab09\stm32f3xx_hal.o"
+"lab09\stm32f3xx_hal_rcc.o"
+"lab09\stm32f3xx_hal_rcc_ex.o"
+"lab09\stm32f3xx_hal_gpio.o"
+"lab09\stm32f3xx_hal_dma.o"
+"lab09\stm32f3xx_hal_cortex.o"
+"lab09\stm32f3xx_hal_pwr.o"
+"lab09\stm32f3xx_hal_pwr_ex.o"
+"lab09\stm32f3xx_hal_flash.o"
+"lab09\stm32f3xx_hal_flash_ex.o"
+"lab09\stm32f3xx_hal_i2c.o"
+"lab09\stm32f3xx_hal_i2c_ex.o"
+"lab09\system_stm32f3xx.o"
+--library_type=microlib --strict --scatter "Lab09\Lab09.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Lab09.map" -o Lab09\Lab09.axf
