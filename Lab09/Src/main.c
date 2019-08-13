@@ -44,6 +44,8 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+UART_HandleTypeDef huart3;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -52,12 +54,30 @@ ADC_HandleTypeDef hadc1;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void LedWriteCircle(uint8_t pos);
+
+#define LED_PORT GPIOE
+
+#define LED_0 GPIO_PIN_8
+#define LED_1 GPIO_PIN_9
+#define LED_2 GPIO_PIN_10
+#define LED_3 GPIO_PIN_11
+#define LED_4 GPIO_PIN_12
+#define LED_5 GPIO_PIN_13
+#define LED_6 GPIO_PIN_14
+#define LED_7 GPIO_PIN_15
+
+#define SET GPIO_PIN_SET
+#define RESET GPIO_PIN_RESET
+
+uint8_t count = 0;
 uint16_t adcVal;
 uint8_t str[20];
 /* USER CODE END 0 */
@@ -92,6 +112,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 	HAL_ADC_Start(&hadc1);
 	LcdInit();
@@ -106,13 +127,28 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		
+
     /* USER CODE BEGIN 3 */
 		if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK){
 			adcVal = HAL_ADC_GetValue(&hadc1);
 		}
-		sprintf(str,"ADC Val = %04d",adcVal);
+		sprintf(str,"ADC Val = %04d     \r\n",adcVal);
+		LcdSetPosition(LCD_LINE_1, 0);
 		LcdPutS(str);
+		HAL_UART_Transmit(&huart3, str, sizeof(str), 100);
+		
+		sprintf(str,"Voltage = %.2fv    \r\n",(3.3/4095)*adcVal);
+		LcdSetPosition(LCD_LINE_2, 0);
+		LcdPutS(str);
+		HAL_UART_Transmit(&huart3, str, sizeof(str), 100);
+		LedWriteCircle(count%8);
+		
+		if((3.3/4095)*adcVal >= 0 && (3.3/4095)*adcVal <= 1){
+			count++;
+		}else if((3.3/4095)*adcVal >= 2.1 && (3.3/4095)*adcVal <= 3.3){
+			count--;
+		}
+		
 		HAL_Delay(100);
   }
   /* USER CODE END 3 */
@@ -154,7 +190,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART3|RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
   PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
@@ -222,6 +259,41 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief USART3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART3_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART3_Init 0 */
+
+  /* USER CODE END USART3_Init 0 */
+
+  /* USER CODE BEGIN USART3_Init 1 */
+
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART3_Init 2 */
+
+  /* USER CODE END USART3_Init 2 */
 
 }
 
@@ -318,7 +390,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void LedWriteCircle(uint8_t pos){
+	HAL_GPIO_WritePin(LED_PORT,LED_0,(pos == 0)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_1,(pos == 1)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_2,(pos == 2)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_3,(pos == 3)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_4,(pos == 4)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_5,(pos == 5)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_6,(pos == 6)? SET : RESET);
+	HAL_GPIO_WritePin(LED_PORT,LED_7,(pos == 7)? SET : RESET);
+}
 /* USER CODE END 4 */
 
 /**

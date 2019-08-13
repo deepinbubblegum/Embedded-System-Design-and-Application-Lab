@@ -29,4 +29,6 @@ lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c.h
 lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h
 lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h
 lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h
+lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h
+lab09\main.o: ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 lab09\main.o: ../Src/koibitoex_lcd2.h
