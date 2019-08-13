@@ -144,9 +144,9 @@ int main(void)
 		LedWriteCircle(count%8);
 		
 		if((3.3/4095)*adcVal >= 0 && (3.3/4095)*adcVal <= 1){
-			count++;
-		}else if((3.3/4095)*adcVal >= 2.1 && (3.3/4095)*adcVal <= 3.3){
 			count--;
+		}else if((3.3/4095)*adcVal >= 2.1 && (3.3/4095)*adcVal <= 3.3){
+			count++;
 		}
 		
 		HAL_Delay(100);
