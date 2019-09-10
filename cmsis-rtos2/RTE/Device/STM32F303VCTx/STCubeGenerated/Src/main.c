@@ -85,8 +85,24 @@ const osThreadAttr_t LcdThread2_attr =
   .stack_size = 512
 };
 
+osThreadId_t tid_uartThread1;
+const osThreadAttr_t uartThread1_attr =
+{
+  .priority = osPriorityAboveNormal4,
+  .stack_size = 512
+};
+
+osThreadId_t tid_uartThread2;
+const osThreadAttr_t uartThread2_attr =
+{
+  .priority = osPriorityAboveNormal3,
+  .stack_size = 512
+};
+
 osMutexId_t mid_lcdMutex;
 
+osSemaphoreId_t sid_BinSem1;
+osSemaphoreId_t sid_BinSem2;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -101,6 +117,8 @@ static void LedThread1(void * argument);
 static void LedThread2(void * argument);
 static void	LcdThread1(void * argument);
 static void	LcdThread2(void * argument);
+static void	uartThread1(void * argument);
+static void	uartThread2(void * argument);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -164,6 +182,18 @@ int main(void)
   tid_LcdThread2 = osThreadNew(LcdThread2, NULL, &LcdThread2_attr);
   if (tid_LcdThread2 == NULL) return (-1);
   
+	sid_BinSem1 = osSemaphoreNew(1, 0, NULL);
+	if(sid_BinSem1 == NULL) return (-1);
+	
+	sid_BinSem2 = osSemaphoreNew(1, 0, NULL);
+	if(sid_BinSem1 == NULL) return (-1);
+	
+	tid_uartThread1 = osThreadNew(uartThread1, NULL, &uartThread1_attr);
+  if (tid_uartThread1 == NULL) return (-1);
+  
+  tid_uartThread2 = osThreadNew(uartThread2, NULL, &uartThread2_attr);
+  if (tid_uartThread2 == NULL) return (-1);
+	
 	mid_lcdMutex = osMutexNew(NULL);
 	if (mid_lcdMutex == NULL) return (-1);
 	
@@ -517,6 +547,7 @@ static void	LcdThread1(void * argument)
 	uint8_t str[20];
 	uint8_t count;
 	osStatus_t osStatus;
+	
 	while(1)
 	{
 		sprintf((char *)str,"Thread1 = %03d",count++);
@@ -549,6 +580,47 @@ static void	LcdThread2(void * argument)
 		osDelay(300);
 	}
 }
+
+static void	uartThread1(void * argument)
+{
+	uint8_t str3[20];
+	uint8_t count3;
+	osStatus_t osStatus;
+	while(1)
+	{
+		sprintf((char *)str3,"###Thread1 = %03d\r\n",count3++);
+		HAL_UART_Transmit(&huart3, str3, strlen((char *)str3), 100);
+		if(count3 == 50)
+		{
+			/*Release BinSem1. */
+			osSemaphoreRelease(sid_BinSem1);
+			/* Acquire BinSem2. */
+			osSemaphoreAcquire(sid_BinSem2, 0);
+		}
+		osDelay(125);
+	}
+}
+
+static void	uartThread2(void * argument)
+{
+	uint8_t str4[20];
+	uint8_t count4;
+	osStatus_t osStatus;
+	while(1)
+	{
+		sprintf((char *)str4,"***Thread2 = %03d\r\n",count4++);
+		HAL_UART_Transmit(&huart3, str4, strlen((char *)str4), 100);
+		if(count4 == 50)
+		{
+			/*Release BinSem2. */
+			osSemaphoreRelease(sid_BinSem2);
+			/* Acquire BinSem1. */
+			osSemaphoreAcquire(sid_BinSem1, 0);
+		}
+		osDelay(300);
+	}
+}
+
 /* Interrupt Service Routine (ISR) -------------------------------------------*/
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
