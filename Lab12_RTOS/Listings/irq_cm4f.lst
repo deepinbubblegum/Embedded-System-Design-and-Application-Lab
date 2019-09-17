@@ -268,10 +268,10 @@ re\Include -IC:\Keil_ARM_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\RTOS2\Include -IC:\K
 eil_ARM_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\RTOS2\RTX\Include -IC:\Keil_ARM_v5\AR
 M\PACK\Keil\ARM_Compiler\1.6.1\Include -IC:\Keil_ARM_v5\ARM\PACK\Keil\STM32F3xx
 _DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F3xx\Include -IC:\Keil_ARM_v5\ARM\PACK\
-Keil\STM32F3xx_DFP\2.1.0\Drivers\STM32F3xx_HAL_Driver\Inc --predefine="__EVAL S
-ETA 1" --predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1" --pr
-edefine="STM32F303xC SETA 1" --list=.\listings\irq_cm4f.lst C:\Keil_ARM_v5\ARM\
-PACK\ARM\CMSIS\5.5.1\CMSIS\RTOS2\RTX\Source\ARM\irq_cm4f.s
+Keil\STM32F3xx_DFP\2.1.0\Drivers\STM32F3xx_HAL_Driver\Inc --predefine="__UVISIO
+N_VERSION SETA 527" --predefine="_RTE_ SETA 1" --predefine="STM32F303xC SETA 1"
+ --list=.\listings\irq_cm4f.lst C:\Keil_ARM_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\R
+TOS2\RTX\Source\ARM\irq_cm4f.s
 
 
 
@@ -501,4 +501,4 @@ X\Source\ARM\irq_cm4f.s
 TX\Source\ARM\irq_cm4f.s
 Comment: osRtxUserSVC used once
 4 symbols
-360 symbols in table
+359 symbols in table

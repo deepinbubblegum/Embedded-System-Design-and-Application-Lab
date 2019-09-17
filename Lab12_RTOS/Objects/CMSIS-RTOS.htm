@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\CMSIS-RTOS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\CMSIS-RTOS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Sep 03 17:20:25 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Sep 17 15:11:06 2019
 <BR><P>
 <H3>Maximum Stack Usage =        240 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1812,10 +1812,10 @@ Global Symbols
 <P><STRONG><a name="[10d]"></a>osMutexAcquire</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, rtx_mutex.o(i.osMutexAcquire), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = osMutexAcquire &rArr; EvrRtxMutexError &rArr; EventRecord2 &rArr; EventRecordItem
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquire
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMasked
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquire
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_acquire
 </UL>
@@ -1823,10 +1823,10 @@ Global Symbols
 <P><STRONG><a name="[10e]"></a>osMutexDelete</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, rtx_mutex.o(i.osMutexDelete), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = osMutexDelete &rArr; EvrRtxMutexError &rArr; EventRecord2 &rArr; EventRecordItem
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexDelete
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMasked
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexDelete
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_free
 </UL>
@@ -1834,10 +1834,10 @@ Global Symbols
 <P><STRONG><a name="[10f]"></a>osMutexNew</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, rtx_mutex.o(i.osMutexNew), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = osMutexNew &rArr; EvrRtxMutexError &rArr; EventRecord2 &rArr; EventRecordItem
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexNew
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMasked
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexNew
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_initialize
 </UL>
@@ -1845,10 +1845,10 @@ Global Symbols
 <P><STRONG><a name="[111]"></a>osMutexRelease</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, rtx_mutex.o(i.osMutexRelease), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = osMutexRelease &rArr; EvrRtxMutexError &rArr; EventRecord2 &rArr; EventRecordItem
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexRelease
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMasked
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexRelease
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_release
 </UL>
@@ -1980,14 +1980,14 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListRemove
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxEventFlagsWaitTimeout
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxDelayCompleted
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListRoot
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadReadyPut
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxSemaphoreAcquireTimeout
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquireTimeout
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueuePutTimeout
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueGetTimeout
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMemoryPoolAllocTimeout
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListRoot
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadReadyPut
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadUnblocked
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadFlagsWaitTimeout
 </UL>
@@ -2104,10 +2104,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = osRtxThreadWaitEnter &rArr; EvrRtxThreadBlocked &rArr; EventRecord2 &rArr; EventRecordItem
 </UL>
 <BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListGet
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadBlocked
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadGetRunning
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadDelayInsert
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxKernelGetState
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadBlocked
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadSwitch
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcRtxDelay
@@ -2169,9 +2169,9 @@ Global Symbols
 <P><STRONG><a name="[106]"></a>osThreadNew</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, rtx_thread.o(i.osThreadNew))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = osThreadNew &rArr; EvrRtxThreadNew &rArr; EventRecord4 &rArr; EventRecordItem
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadError
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMode
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsIrqMasked
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadError
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadNew
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2428,9 +2428,9 @@ Local Symbols
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListGet
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolFree
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolAlloc
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueRetrieved
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueInserted
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueueRemove
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueuePut
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -2446,13 +2446,13 @@ Local Symbols
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolFree
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolAlloc
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadWaitEnter
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueRetrieved
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueNotRetrieved
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueInserted
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueGetTimeout
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueGetPending
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueError
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueueRemove
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueuePut
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueueGet
@@ -2482,13 +2482,13 @@ Local Symbols
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListGet
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolAlloc
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadWaitEnter
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueRetrieved
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueuePutTimeout
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueuePutPending
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueNotInserted
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueInserted
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMessageQueueError
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadRegPtr
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MessageQueuePut
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
@@ -2513,12 +2513,12 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListPut
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadWaitEnter
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListSort
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexNotAcquired
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquired
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquireTimeout
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexAcquirePending
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListSort
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtx_mutex.o(i.osMutexAcquire)
 </UL>
@@ -2530,9 +2530,9 @@ Local Symbols
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadDispatch
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryPoolFree
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMemoryFree
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListSort
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexDestroyed
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListSort
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtx_mutex.o(i.osMutexDelete)
 </UL>
@@ -2655,12 +2655,12 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadWaitExit
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadListGet
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadDestroyed
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadSetRunning
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadGetRunning
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadFree
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxKernelGetState
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxMutexOwnerRelease
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadDestroyed
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxThreadSwitch
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxThreadJoined
 </UL>
