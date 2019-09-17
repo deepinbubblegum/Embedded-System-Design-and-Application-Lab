@@ -101,6 +101,16 @@ const osThreadAttr_t uartThread2_attr =
 
 osMutexId_t mid_lcdMutex;
 
+const osSemaphoreAttr_t BinSem1_attr =
+{
+	.name = "BinSem1"
+};
+
+const osSemaphoreAttr_t BinSem2_attr =
+{
+	.name = "BinSem2"
+};
+
 osSemaphoreId_t sid_BinSem1;
 osSemaphoreId_t sid_BinSem2;
 /* USER CODE END PV */
@@ -182,10 +192,10 @@ int main(void)
   tid_LcdThread2 = osThreadNew(LcdThread2, NULL, &LcdThread2_attr);
   if (tid_LcdThread2 == NULL) return (-1);
   
-	sid_BinSem1 = osSemaphoreNew(1, 0, NULL);
+	sid_BinSem1 = osSemaphoreNew(1, 0, &BinSem1_attr);
 	if(sid_BinSem1 == NULL) return (-1);
 	
-	sid_BinSem2 = osSemaphoreNew(1, 0, NULL);
+	sid_BinSem2 = osSemaphoreNew(1, 0, &BinSem2_attr);
 	if(sid_BinSem1 == NULL) return (-1);
 	
 	tid_uartThread1 = osThreadNew(uartThread1, NULL, &uartThread1_attr);
@@ -567,6 +577,7 @@ static void	LcdThread2(void * argument)
 	uint8_t str2[20];
 	uint8_t count2;
 	osStatus_t osStatus;
+	
 	while(1)
 	{
 		sprintf((char *)str2,"Thread2 = %03d",count2++);
@@ -595,7 +606,7 @@ static void	uartThread1(void * argument)
 			/*Release BinSem1. */
 			osSemaphoreRelease(sid_BinSem1);
 			/* Acquire BinSem2. */
-			osSemaphoreAcquire(sid_BinSem2, 0);
+			osSemaphoreAcquire(sid_BinSem2, osWaitForever);
 		}
 		osDelay(125);
 	}
@@ -615,7 +626,7 @@ static void	uartThread2(void * argument)
 			/*Release BinSem2. */
 			osSemaphoreRelease(sid_BinSem2);
 			/* Acquire BinSem1. */
-			osSemaphoreAcquire(sid_BinSem1, 0);
+			osSemaphoreAcquire(sid_BinSem1, osWaitForever);
 		}
 		osDelay(300);
 	}
