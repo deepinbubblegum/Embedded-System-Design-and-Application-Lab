@@ -1,0 +1,4 @@
+load STM32F767ZITx 
+project name STCubeGenerated 
+project toolchain "MDK-ARM V5" 
+project path "D:\Users\PanOne\Desktop\cmsis-rtos2\temp\RTE\Device\STM32F767ZITx\" 
